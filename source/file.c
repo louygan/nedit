@@ -1827,7 +1827,10 @@ void CheckForChangesToFile(WindowInfo *window)
 	    return;
 	}
         XUngrabPointer(XtDisplay(window->shell), timestamp);
-        if (window->fileChanged)
+        
+        /* 20240920 always reload */
+	/*
+	if (window->fileChanged)
             resp = DialogF(DF_WARN, window->shell, 2,
                     "File modified externally",
                     "%s has been modified by another program.  Reload?\n\n"
@@ -1840,6 +1843,8 @@ void CheckForChangesToFile(WindowInfo *window)
                     "Reload", "Cancel", window->filename);
         if (resp == 1)
             RevertToSaved(window);
+	*/
+        RevertToSaved(window);
     }
 }
 

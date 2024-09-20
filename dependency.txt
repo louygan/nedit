@@ -1,0 +1,4 @@
+ubuntu:
+
+  sudo apt install libmotif-dev
+
